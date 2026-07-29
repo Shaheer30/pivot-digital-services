@@ -1,20 +1,36 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
+const contactEmail = 'pivotdigitalservices@gmail.com'
+const contactPhone = '+92 346 7887225'
+const contactPhoneHref = 'tel:+923467887225'
 </script>
 
 <template>
-  <footer id="contact" class="footer">
+  <footer class="footer">
     <div class="footer__inner container">
       <div class="footer__brand">
-        <p class="footer__mark">Pivot</p>
-        <p class="footer__tagline">Digital craft for brands ready to move forward.</p>
+        <img
+          class="footer__logo"
+          src="/pivot-logo.png?v=3"
+          alt="Pivot Digital Services"
+          width="200"
+          height="80"
+        />
+        <p class="footer__tagline">
+          Operations and digital support for taxi, limousine, and transportation companies.
+        </p>
       </div>
 
-      <nav class="footer__nav" aria-label="Footer">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/services">Services</RouterLink>
-        <a href="mailto:hello@pivotdigitalservices.com">hello@pivotdigitalservices.com</a>
-      </nav>
+      <div class="footer__meta">
+        <nav class="footer__nav" aria-label="Footer">
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/services">Services</RouterLink>
+        </nav>
+        <div class="footer__contact">
+          <a :href="`mailto:${contactEmail}`">{{ contactEmail }}</a>
+          <a :href="contactPhoneHref">{{ contactPhone }}</a>
+        </div>
+      </div>
 
       <p class="footer__copy">&copy; {{ year }} Pivot Digital Services</p>
     </div>
@@ -34,35 +50,44 @@ const year = new Date().getFullYear()
   gap: var(--space-lg);
 }
 
-.footer__mark {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: var(--space-xs);
+.footer__logo {
+  display: block;
+  height: 3.5rem;
+  width: auto;
+  margin-bottom: var(--space-sm);
+  border-radius: 0.4rem;
 }
 
 .footer__tagline {
   color: rgba(255, 255, 255, 0.65);
-  max-width: 22rem;
+  max-width: 26rem;
   font-size: 0.95rem;
 }
 
-.footer__nav {
+.footer__meta {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
+}
+
+.footer__nav,
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
   font-size: 0.95rem;
 }
 
-.footer__nav a {
+.footer__nav a,
+.footer__contact a {
   color: rgba(255, 255, 255, 0.7);
   width: fit-content;
   transition: color 0.2s ease;
 }
 
-.footer__nav a:hover {
-  color: #8fd6b8;
+.footer__nav a:hover,
+.footer__contact a:hover {
+  color: var(--color-accent-light);
 }
 
 .footer__copy {
@@ -77,11 +102,21 @@ const year = new Date().getFullYear()
     grid-template-columns: 1.4fr 1fr;
   }
 
+  .footer__meta {
+    align-items: flex-end;
+    text-align: right;
+  }
+
   .footer__nav {
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-end;
     gap: var(--space-md);
+    justify-content: flex-end;
+  }
+
+  .footer__contact {
+    align-items: flex-end;
+    padding-top: var(--space-xs);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .footer__copy {

@@ -1,16 +1,27 @@
 :root {
-  --color-bg: #f3f5f4;
+  --color-bg: #f5f7f4;
   --color-surface: #ffffff;
-  --color-surface-muted: #e8ecea;
+  --color-surface-muted: #e9eee6;
   --color-ink: #0b1220;
   --color-ink-muted: #5a6578;
-  --color-accent: #146c4f;
-  --color-accent-hover: #0f5540;
-  --color-accent-soft: rgba(20, 108, 79, 0.1);
-  --color-accent-glow: rgba(20, 108, 79, 0.28);
-  --color-panel: #0f2a22;
-  --color-panel-mid: #16382e;
-  --color-line: #d5ddd8;
+
+  /* Brand palette from logo */
+  --color-green: #4fa123;
+  --color-orange: #f1590b;
+  --color-blue: #177acf;
+
+  --color-accent: var(--color-green);
+  --color-accent-hover: #3d8019;
+  --color-accent-soft: rgba(79, 161, 35, 0.12);
+  --color-accent-glow: rgba(79, 161, 35, 0.3);
+  --color-accent-light: #9fd46a;
+
+  --color-orange-soft: rgba(241, 89, 11, 0.12);
+  --color-blue-soft: rgba(23, 122, 207, 0.12);
+
+  --color-panel: #0c0c0c;
+  --color-panel-mid: #161616;
+  --color-line: #d7ddd2;
   --color-white: #ffffff;
 
   /* aliases used by existing components */
@@ -36,7 +47,7 @@
   --space-2xl: 6rem;
 
   --max-width: 74rem;
-  --header-height: 4.5rem;
+  --header-height: 4.75rem;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --duration: 0.55s;
@@ -151,7 +162,8 @@ h3 {
 }
 
 .btn--ghost:hover {
-  border-color: var(--color-ink);
+  border-color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 .btn--on-dark {
@@ -221,6 +233,10 @@ h3 {
   transition:
     opacity var(--duration) var(--ease-out),
     transform var(--duration) var(--ease-out);
+}
+
+.reveal:not(.is-visible) {
+  pointer-events: none;
 }
 
 .reveal.is-visible {

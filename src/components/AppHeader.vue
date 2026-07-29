@@ -46,21 +46,13 @@ onUnmounted(() => {
   <header class="header" :class="{ 'header--open': menuOpen, 'header--scrolled': scrolled }">
     <div class="header__inner container">
       <RouterLink to="/" class="header__brand" aria-label="Pivot Digital Services home">
-        <span class="header__logo" aria-hidden="true">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="28" height="28" rx="7" fill="currentColor" />
-            <path
-              d="M8 14h12M14 8v12"
-              stroke="#f3f5f4"
-              stroke-width="2.25"
-              stroke-linecap="round"
-            />
-          </svg>
-        </span>
-        <span class="header__wordmark">
-          <span class="header__mark">Pivot</span>
-          <span class="header__sub">Digital Services</span>
-        </span>
+        <img
+          class="header__logo"
+          src="/pivot-logo.png?v=3"
+          alt="Pivot Digital Services"
+          width="160"
+          height="64"
+        />
       </RouterLink>
 
       <button
@@ -86,8 +78,8 @@ onUnmounted(() => {
         <RouterLink to="/services" class="header__link" active-class="header__link--active"
           >Services</RouterLink
         >
-        <a href="mailto:hello@pivotdigitalservices.com" class="header__cta">
-          Get in touch
+        <a href="mailto:pivotdigitalservices@gmail.com" class="header__cta">
+          Contact us
           <span aria-hidden="true">↗</span>
         </a>
       </nav>
@@ -124,42 +116,21 @@ onUnmounted(() => {
 .header__brand {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
   z-index: 110;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.header__brand:hover {
+  opacity: 0.9;
 }
 
 .header__logo {
-  width: 1.85rem;
-  height: 1.85rem;
-  color: var(--color-accent);
-  flex-shrink: 0;
-}
-
-.header__logo svg {
-  width: 100%;
-  height: 100%;
   display: block;
-}
-
-.header__wordmark {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.05;
-}
-
-.header__mark {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-.header__sub {
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
+  height: 3.25rem;
+  width: auto;
+  object-fit: contain;
 }
 
 .header__toggle {
