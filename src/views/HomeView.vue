@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import HeroArt from '../components/HeroArt.vue'
 import StudioMark from '../components/StudioMark.vue'
 import WhyMark from '../components/WhyMark.vue'
 import ServiceIcon from '../components/ServiceIcon.vue'
@@ -90,8 +89,13 @@ const clients = [
         </div>
       </div>
       <div class="hero__panel" aria-hidden="true">
-        <div class="hero__panel-glow" />
-        <HeroArt />
+        <img
+          class="hero__bg"
+          src="/hero-bg.jpeg"
+          alt=""
+          width="1200"
+          height="1200"
+        />
       </div>
     </section>
 
@@ -255,33 +259,20 @@ const clients = [
 
 .hero__panel {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-lg) 1.25rem var(--space-xl);
-  background:
-    radial-gradient(ellipse 70% 55% at 70% 30%, rgba(79, 161, 35, 0.35), transparent 60%),
-    radial-gradient(ellipse 40% 35% at 20% 80%, rgba(23, 122, 207, 0.2), transparent 50%),
-    linear-gradient(160deg, var(--color-panel-mid), var(--color-panel));
+  min-height: 22rem;
   overflow: hidden;
+  background: var(--color-panel);
   animation: rise 0.65s var(--ease-out) 0.08s both;
 }
 
-.hero__panel-glow {
+.hero__bg {
   position: absolute;
-  width: 18rem;
-  height: 18rem;
-  border-radius: 50%;
-  background: rgba(143, 214, 184, 0.12);
-  top: 10%;
-  right: 5%;
-  pointer-events: none;
-}
-
-.hero__panel :deep(.hero-art) {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 28rem);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 @keyframes rise {
@@ -524,7 +515,7 @@ const clients = [
   }
 
   .hero__panel {
-    padding: 2rem;
+    min-height: 100%;
   }
 
   .intro__grid,
