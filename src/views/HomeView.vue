@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import StudioMark from '../components/StudioMark.vue'
-import WhyMark from '../components/WhyMark.vue'
 import ServiceIcon from '../components/ServiceIcon.vue'
 
 const page = ref<HTMLElement | null>(null)
@@ -17,19 +15,19 @@ const teasers = [
     title: '24/7 Dispatch Operations',
     blurb: 'Round-the-clock taxi and limousine dispatch that keeps your fleet moving.',
     hash: 'dispatch',
-    icon: 'mobile' as const,
+    icon: 'dispatch' as const,
   },
   {
     title: 'Live Customer Support',
     blurb: 'Reservation management and passenger support that protects your reputation.',
     hash: 'support',
-    icon: 'uiux' as const,
+    icon: 'support' as const,
   },
   {
     title: 'Website Design & Development',
     blurb: 'Professional sites built for bookings, trust, and mobile riders.',
     hash: 'website',
-    icon: 'web' as const,
+    icon: 'website' as const,
   },
   {
     title: 'SEO',
@@ -41,13 +39,13 @@ const teasers = [
     title: 'Google Ads (PPC)',
     blurb: 'Targeted campaigns that turn search intent into booked trips.',
     hash: 'ppc',
-    icon: 'commerce' as const,
+    icon: 'ppc' as const,
   },
   {
     title: 'Fleet & Back-Office Support',
     blurb: 'Driver coordination, admin work, and process support behind the scenes.',
     hash: 'fleet',
-    icon: 'brand' as const,
+    icon: 'fleet' as const,
   },
 ]
 
@@ -104,8 +102,14 @@ const clients = [
         <div class="reveal">
           <p class="section__eyebrow">Who we are</p>
           <h2 class="section__title">A trusted partner for transportation businesses.</h2>
-          <div class="intro__mark">
-            <StudioMark />
+          <div class="intro__visual">
+            <img
+              class="intro__image"
+              src="/who-we-are.jpeg"
+              alt="Pivot partnership and transportation support"
+              width="800"
+              height="800"
+            />
           </div>
         </div>
         <div class="reveal intro__copy" style="transition-delay: 0.08s">
@@ -151,8 +155,14 @@ const clients = [
         <div class="reveal why__heading" style="transition-delay: 0.08s">
           <p class="section__eyebrow">Why choose us</p>
           <h2 class="section__title">Trust, consistency, and results—not just cost.</h2>
-          <div class="why__mark">
-            <WhyMark />
+          <div class="why__visual">
+            <img
+              class="why__image"
+              src="/why-choose-us.jpeg"
+              alt="Why choose Pivot Digital Services"
+              width="800"
+              height="800"
+            />
           </div>
         </div>
       </div>
@@ -332,12 +342,40 @@ const clients = [
   order: -1;
 }
 
-.intro__mark {
+.intro__visual {
   margin-top: var(--space-md);
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--color-panel);
 }
 
-.why__mark {
+.intro__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.why__visual {
   margin-top: var(--space-md);
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--color-panel);
+}
+
+.why__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .intro__copy,
@@ -523,6 +561,11 @@ const clients = [
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xl);
     align-items: start;
+  }
+
+  .intro__visual,
+  .why__visual {
+    max-width: 26rem;
   }
 
   .why__heading {

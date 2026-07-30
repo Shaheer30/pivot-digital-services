@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import ServiceIcon from '../components/ServiceIcon.vue'
-import HeroArt from '../components/HeroArt.vue'
 
 const page = ref<HTMLElement | null>(null)
 useReveal(page)
@@ -21,7 +20,7 @@ const services = [
   {
     id: 'dispatch',
     title: '24/7 Taxi & Limousine Dispatch Operations',
-    icon: 'mobile' as const,
+    icon: 'dispatch' as const,
     description:
       'Round-the-clock dispatch support that keeps your fleet responsive, organized, and ready for every trip.',
     points: [
@@ -33,7 +32,7 @@ const services = [
   {
     id: 'support',
     title: 'Live Customer Support & Reservation Management',
-    icon: 'uiux' as const,
+    icon: 'support' as const,
     description:
       'Professional passenger support and booking handling that protects your reputation and revenue.',
     points: [
@@ -45,7 +44,7 @@ const services = [
   {
     id: 'website',
     title: 'Website Design & Development',
-    icon: 'web' as const,
+    icon: 'website' as const,
     description:
       'Modern, mobile-ready websites that help riders find you, trust you, and book with confidence.',
     points: [
@@ -69,7 +68,7 @@ const services = [
   {
     id: 'ppc',
     title: 'Google Ads (PPC) Campaign Management',
-    icon: 'commerce' as const,
+    icon: 'ppc' as const,
     description:
       'Paid search campaigns managed for transportation intent—turning searches into booked trips.',
     points: [
@@ -81,7 +80,7 @@ const services = [
   {
     id: 'social',
     title: 'Social Media Management',
-    icon: 'brand' as const,
+    icon: 'social' as const,
     description:
       'Consistent social presence that keeps your brand visible and your service top of mind.',
     points: [
@@ -93,7 +92,7 @@ const services = [
   {
     id: 'fleet',
     title: 'Driver & Fleet Coordination',
-    icon: 'mobile' as const,
+    icon: 'fleet' as const,
     description:
       'Coordination support that helps drivers, vehicles, and schedules stay aligned day to day.',
     points: [
@@ -105,7 +104,7 @@ const services = [
   {
     id: 'admin',
     title: 'Administrative and Back-Office Support',
-    icon: 'uiux' as const,
+    icon: 'admin' as const,
     description:
       'Reliable back-office help so your team can stay focused on passengers and growth.',
     points: [
@@ -117,7 +116,7 @@ const services = [
   {
     id: 'process',
     title: 'Business Process Optimization',
-    icon: 'seo' as const,
+    icon: 'process' as const,
     description:
       'Practical improvements to your workflows that reduce friction and improve efficiency.',
     points: [
@@ -129,7 +128,7 @@ const services = [
   {
     id: 'consulting',
     title: 'Technology & Operations Consulting',
-    icon: 'web' as const,
+    icon: 'consulting' as const,
     description:
       'Guidance on tools and operations so your technology supports—not slows—your business.',
     points: [
@@ -155,7 +154,13 @@ const services = [
         </div>
         <div class="services-hero__art reveal" aria-hidden="true" style="transition-delay: 0.06s">
           <div class="services-hero__frame">
-            <HeroArt />
+            <img
+              class="services-hero__image"
+              src="/hero-bg.jpeg"
+              alt=""
+              width="1200"
+              height="1200"
+            />
           </div>
         </div>
       </div>
@@ -235,9 +240,19 @@ const services = [
 }
 
 .services-hero__frame {
-  background: linear-gradient(160deg, var(--color-panel-mid), var(--color-panel));
+  background: var(--color-panel);
   border-radius: 1.25rem;
-  padding: 1.25rem;
+  overflow: hidden;
+  aspect-ratio: 1;
+  width: 100%;
+}
+
+.services-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .services-hero__art {
